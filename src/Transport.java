@@ -1,24 +1,25 @@
 public class Transport {
 
 
-   private String brand;
-    private String model;
+    private final String brand;
+    private final String model;
     private int year;
     private String country;
     private String color;
     private int speedMax;
 
     public Transport(String brand, String model, int year, String country, String color, int speedMax) {
+
+        if (brand == null || brand.equals("") || brand.isBlank()) {
+            brand = "default";
+        }
         this.brand = brand;
-        if (this.brand == null || brand.equals("") || brand.isBlank()) {
-            this.brand = "default";
-        }
 
-
-        this.model = model;
         if (model == null || model.equals("") || model.isBlank()) {
-            this.model = "default";
+            model = "default";
         }
+        this.model = model;
+
 
         this.color = color;
         if (color == null) {
@@ -51,20 +52,14 @@ public class Transport {
     }
 
     public String getBrand() {
-            return brand;
+        return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
 
     public int getYear() {
         return year;
@@ -74,7 +69,6 @@ public class Transport {
     public String getCountry() {
         return country;
     }
-
 
 
     public String getColor() {
