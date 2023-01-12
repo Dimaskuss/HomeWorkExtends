@@ -1,14 +1,14 @@
 public class Transport {
 
 
-    String brand;
-    String model;
-     int year;
-     String country;
-    String color;
-    String speedMax;
+   private String brand;
+    private String model;
+    private int year;
+    private String country;
+    private String color;
+    private int speedMax;
 
-    public Transport(String brand, String model, int year, String country, String color, String speedMax) {
+    public Transport(String brand, String model, int year, String country, String color, int speedMax) {
         this.brand = brand;
         if (this.brand == null || brand.equals("") || brand.isBlank()) {
             this.brand = "default";
@@ -33,8 +33,8 @@ public class Transport {
             this.country = "СССР";
         }
         this.speedMax = speedMax;
-        if (speedMax == null || speedMax.equals("") || speedMax.isBlank()) {
-            this.speedMax = "заполни поле";
+        if (speedMax <= 0) {
+            this.speedMax = 40;
         }
     }
 
@@ -85,11 +85,11 @@ public class Transport {
         this.color = color;
     }
 
-    public String getSpeedMax() {
+    public int getSpeedMax() {
         return speedMax;
     }
 
-    public void setSpeedMax(String speedMax) {
+    public void setSpeedMax(int speedMax) {
         this.speedMax = speedMax;
     }
 
